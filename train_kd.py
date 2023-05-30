@@ -34,7 +34,7 @@ class Trainer(object):
                              output_stride=args.out_stride,
                              sync_bn=args.sync_bn,
                              freeze_bn=args.freeze_bn)
-        checkpoint = torch.load('/kaggle/working/' + args.teacher_path)
+        checkpoint = torch.load(args.teacher_path)
         self.t_net.load_state_dict(checkpoint['state_dict'])
 
         self.s_net = DeepLab(num_classes=self.nclass,
@@ -268,7 +268,7 @@ def main():
     parser.add_argument('--ic_lambda', type=float, default=None,
                         help='coefficient for inter class loss')
     
-    parser.add_argument('--teacher_path', type=str, default='/kaggle/working/checkpoint.pth.tar',
+    parser.add_argument('--teacher_path', type=str, default='./pretrained/deeplab-resnet.pth.tar',
                         help='path to the pretrained teache')
 
     args = parser.parse_args()

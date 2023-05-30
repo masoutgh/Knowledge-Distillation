@@ -1,0 +1,4 @@
+dataloaders/datasets/VOCdevkit
+wandb
+dataloaders/datasets/VOCdevkit/VOC2012
+__pycache__
